@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+"""
+Module for determining if all boxes can be unlocked.
+"""
+
 from collections import deque
 
 
