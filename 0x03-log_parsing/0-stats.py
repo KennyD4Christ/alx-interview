@@ -16,6 +16,7 @@ status_code_counts = {
 }
 line_count = 0
 
+
 def print_stats():
     """Print the accumulated statistics."""
     print("File size: {}".format(total_file_size))
@@ -23,10 +24,12 @@ def print_stats():
         if status_code_counts[code] > 0:
             print("{}: {}".format(code, status_code_counts[code]))
 
+
 def handle_interrupt(signum, frame):
     """Handle the keyboard interruption (CTRL + C) and print statistics."""
     print_stats()
     sys.exit(0)
+
 
 # Register signal handler for keyboard interruption
 signal.signal(signal.SIGINT, handle_interrupt)
@@ -36,12 +39,12 @@ try:
         line = line.strip()
         if len(line) == 0:
             continue
-        
+
         # Split the line into components
         parts = line.split()
         if len(parts) < 7:
             continue
-        
+
         # Extract and validate components
         ip_address = parts[0]
         status_code = parts[-2]
