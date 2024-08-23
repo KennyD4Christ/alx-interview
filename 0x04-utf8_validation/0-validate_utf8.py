@@ -9,6 +9,9 @@ def validUTF8(data):
     num_bytes = 0
 
     for byte in data:
+        # Extract the least significant 8 bits
+        byte = byte & 0xFF
+
         if num_bytes == 0:
             if byte >> 5 == 0b110:
                 num_bytes = 1
