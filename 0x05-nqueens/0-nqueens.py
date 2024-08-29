@@ -17,6 +17,7 @@ def is_safe(board: List[int], row: int, col: int, N: int) -> bool:
             return False
     return True
 
+
 def solve_nqueens(N: int) -> None:
     """
     Solve the N Queens problem and print all solutions.
@@ -34,6 +35,7 @@ def solve_nqueens(N: int) -> None:
     board = [-1] * N
     backtrack(0, board)
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
@@ -46,5 +48,5 @@ if __name__ == "__main__":
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
-    
+
     solve_nqueens(N)
