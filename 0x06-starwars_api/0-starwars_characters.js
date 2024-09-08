@@ -12,15 +12,21 @@ request(url, (error, response, body) => {
   }
   const film = JSON.parse(body);
   const characters = film.characters;
-  
-  characters.forEach((characterUrl) => {
-    request(characterUrl, (err, res, charBody) => {
+
+  const printCharacters = (characters, index = 0) => {
+    if (index >= characters.length) return;
+
+    request(characters[index], (err, res, charBody) => {
       if (err) {
         console.error(err);
+        printCharacters(characters, index + 1);
         return;
       }
       const character = JSON.parse(charBody);
       console.log(character.name);
+      printCharacters(characters, index + 1);
     });
-  });
+  };
+
+  printCharacters(characters);
 });
