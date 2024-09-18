@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module for determining the fewest number of coins needed to meet a given
+amount, given a pile of coins of different values
+"""
+
 
 def makeChange(coins, total):
     """
